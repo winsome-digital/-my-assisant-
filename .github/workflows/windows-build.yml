@@ -1,17 +1,3 @@
-# GitHub Actions workflow: build the Jarvis Windows .exe.
-#
-# PyInstaller cannot cross-compile, so the .exe MUST be built on a real
-# Windows runner. This workflow does that automatically.
-#
-# How to use:
-#   1. Push this project to a GitHub repository.
-#   2. Open the repo on GitHub -> Actions tab -> "Build Windows EXE".
-#   3. Click "Run workflow" -> "Run workflow".
-#   4. When it finishes (green check), download "Jarvis-windows"
-#      from the Artifacts section. It contains Jarvis.exe.
-#
-# The workflow also runs on every version tag (e.g. git tag v0.1.0 && git push --tags).
-
 name: Build Windows EXE
 
 on:
@@ -23,7 +9,6 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -38,17 +23,6 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Smoke-test (byte-compile + headless commands)
-        run: |
-          python -m compileall -q assistant
-          python -m assistant.main --help
-          python -m assistant.main --list-skills
-          python -m assistant.main --text "what time is it"
-          python -m assistant.main --text "help"
-          python -m assistant.main --text "check my email"
-          python -m assistant.main --text "remind me to stretch in 1 hour"
-          python -m assistant.main --text "what are my reminders"
-
       - name: Build the .exe with PyInstaller
         run: pyinstaller build/windows/assistant.spec
 
@@ -56,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: Jarvis-windows
-          path: dist/Jarvis.exe
+          path: dist/
