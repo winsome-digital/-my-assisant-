@@ -1,0 +1,1 @@
+{"_comment":"Copy this file to assistant/config.local.json and fill in YOUR details. config.local.json is gitignored — it never leaves your machine.","contacts":{"mom":{"phone":"+923001234568"},"sara":{"email":"sara@example.com","phone":"+923001234567"}},"email":{"address":"you@gmail.com","app_password":"xxxx xxxx xxxx xxxx"},"user_name":"Mohsin"}

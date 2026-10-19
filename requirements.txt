@@ -1,0 +1,18 @@
+# Jarvis — personal desktop assistant dependencies
+# Tested with Python 3.12.
+#
+# Email and messaging use only the Python standard library
+# (smtplib, imaplib, webbrowser, urllib) — no extra packages needed.
+
+# Speech-to-text (lazy import; only needed for the voice loop)
+faster-whisper==1.0.3
+
+# Text-to-speech (lazy import; SAPI5 is used automatically on Windows)
+pyttsx3==2.90
+
+# Microphone capture (lazy import; only needed for the voice loop)
+sounddevice==0.4.6
+
+# Build only: used by the GitHub Actions Windows runner to make the .exe.
+# Not needed to run the assistant from source.
+pyinstaller==6.10.0

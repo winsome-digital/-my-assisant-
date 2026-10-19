@@ -1,0 +1,15 @@
+# Local secrets — never commit. Copy config.local.example.json to
+# assistant/config.local.json and fill in your own details.
+assistant/config.local.json
+
+# Python bytecode and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# PyInstaller output folders created during the Windows build.
+# (The committed build/windows/assistant.spec stays tracked.)
+/dist/
+/build/*/
+!/build/windows/
